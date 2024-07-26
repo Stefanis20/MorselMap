@@ -1,0 +1,227 @@
+﻿/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.rating-container {                   /* Εδώ ξεκινά το Star Rating */
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.average-rating {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.star-rating .fa {
+    color: #ddd; /* Αρχικό χρώμα των αστεριών */
+}
+
+.star-rating .checked {
+    color: orange; /* Χρώμα των αναμμένων αστεριών */
+}
+
+.reviews-count {
+    margin-left: 10px;
+    color: #aaa; /* Θαμπό χρώμα για τον αριθμό των κριτικών */
+    font-size: 14px; 
+}       /*Kai Edo Telio to Star Rating*/
+
+.card__discount {
+    color: red;
+    font-weight: bold;
+}
+
+
+.view-all-container {
+    text-align: right; 
+    margin-bottom: 20px; /* Προσθέτει λίγο περιθώριο πριν από τις κάρτες */
+}
+
+.view-all-link {
+    font-weight: bold; /* Κάνει το κείμενο πιο έντονο */
+    text-decoration: none; /* Αφαιρεί την υπογράμμιση από το link */
+    color: #007BFF; /* Δίνει μπλε χρώμα στο link */
+    padding: 10px; /* Προσθέτει λίγη απόσταση γύρω από το κείμενο */
+    border-radius: 5px; /* Κάνει τις γωνίες του link στρογγυλεμένες */
+    background-color: #F0F0F0; /* Προσθέτει ένα ελαφρύ γκρι φόντο */
+}
+
+    .view-all-link:hover {
+        background-color: #E0E0E0; /* Αλλάζει το φόντο όταν το ποντίκι είναι πάνω από το link */
+    }
+
+.slide-container {
+    max-width: 1120px;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.slide-content {
+    margin: 0 40px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.card {
+    border-radius: 25px;
+    background-color: #EFEFEF;
+}
+
+.image-content,
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content {
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    border-radius: 25px 25px 0 25px;
+}
+
+    .overlay::before,
+    .overlay::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -40px;
+        height: 40px;
+        width: 40px;
+
+    }
+
+    .overlay::after {
+        border-radius: 0 25px 0 0;
+        background-color: #EFEFEF;
+    }
+
+.card-image {
+    position: relative;
+    height: 250px;
+    width: 300px;
+    border-radius: 50%;
+    background: #FFF;
+    padding: 3px;
+}
+
+    .card-image .card-img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+
+
+    }
+
+.name {
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 16px;
+    background-color: #4070F4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .button:hover {
+        background: #265DF2;
+    }
+
+.swiper-navBtn {
+    color: #6E93f7;
+    transition: color 0.3s ease;
+}
+
+    .swiper-navBtn:hover {
+        color: #4070F4;
+    }
+
+    .swiper-navBtn::before,
+    .swiper-navBtn::after {
+        font-size: 38px;
+    }
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-pagination-bullet {
+    background-color: #6E93f7;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #4070F4;
+}
+
+/* Προσθέστε αυτόν τον κανόνα CSS για να δείχνει ένα χεράκι όταν περνάτε πάνω από τις εικόνες του slider */
+.swiper-slide .card-image {
+    cursor: grab;
+}
+
+    /* Όταν το ποντίκι είναι κλικαρισμένο πάνω στην εικόνα */
+    .swiper-slide .card-image:active {
+        cursor: grabbing;
+    }
+
+
+@media screen and (max-width: 768px) {
+    .slide-content {
+        margin: 0 10px;
+    }
+
+    .swiper-navBtn {
+        display: none;
+    }
+}
+
+/* Apo edo ksekina i morfopisii tou new-arrival */
+.new-arrival {
+    display: inline-block;
+    background-color: #a1cddc; /* Γαλάζιο φόντο για την ετικέτα */
+    color: #1387ae; /* Μπλε χρώμα για τα γράμματα */
+    padding: 5px 10px; /* Εσωτερικό περιθώριο για την ετικέτα */
+    font-size: 12px; /* Μικρό μέγεθος γραμματοσειράς */
+    font-weight: normal; /* Κανονικό βάρος γραμματοσειράς για να μην είναι πολύ έντονα */
+    border-radius: 5px; /* Στρογγυλεμένες γωνίες για το κουτάκι */
+    margin-top: 10px; /* Επιπλέον απόσταση από το πάνω στοιχείο */
+}
+
+
+

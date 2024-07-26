@@ -1,0 +1,17 @@
+﻿body, html {
+  height: 100%;
+  margin: 0;
+}
+.background-container {
+    width: 50%; /* Ορίζεις το πλάτος του container */
+    height: 35vh; /* Ορίζεις το ύψος του container σε ποσοστό του ύψους της οθόνης */
+    background-image: url('Picture/Restaurants/Restaurants1.png'); /* Ορίζεις την εικόνα φόντου */
+    background-size: cover; /* Εξασφαλίζεις ότι η εικόνα θα καλύψει ολόκληρο το container χωρίς να αλλοιωθούν οι αναλογίες της */
+    background-position: center; /* Κεντράρεις την εικόνα */
+    background-repeat: no-repeat; /* Εξασφαλίζεις ότι η εικόνα δεν θα επαναληφθεί */
+    margin: 0 auto; /* Κεντράρεις το container στο κέντρο της οθόνης οριζόντια */
+    padding: 0; /* Ορίζεις το εσωτερικό περιθώριο του container */
+    display: flex; /* Χρησιμοποιείς το flexbox για να διαχειριστείς το layout του περιεχομένου */
+    justify-content: center; /* Κεντράρεις το περιεχόμενο οριζόντια μέσα στο container */
+    align-items: center; /* Κεντράρεις το περιεχόμενο κατακόρυφα μέσα στο container */
+}

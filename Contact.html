@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Φόρμα Επικοινωνίας</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/StyleBarHeader.css">
+    <link rel="icon" type="image/x-icon" href="CSS/Picture/Loco/MorselMapFavicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: url('CSS/Picture/Contact1.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+        }
+
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0,0,0,0.8);
+            }
+
+        .header {
+            width: 100%;
+            padding: 10px 20px;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1;
+        }
+
+            .header a {
+                text-decoration: none;
+                margin-left: 20px;
+            }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-container {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            width: 100%;
+            margin-top: 40px; /* Δημιουργεί απόσταση μεταξύ του header και του container */
+            margin-bottom: 40px; 
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            z-index: 1;
+        }
+
+            .contact-info h2 {
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+        .contact-form {
+            padding: 20px 40px;
+            background: white;
+            position: relative;
+            z-index: 1;
+        }
+
+            .contact-form h2 {
+                margin-top: 0;
+                color: #333;
+                font-weight: 500;
+            }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+            .field label {
+                display: block;
+                margin-bottom: 5px;
+                color: #666;
+            }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-weight: 500;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+        .social-media a {
+            margin-right: 20px;
+            color: #333; /* Αρχικό χρώμα των εικονιδίων */
+        }
+
+        .social-media .facebook:hover {
+            color: #667eea;
+        }
+
+        .social-media .instagram:hover {
+            color: #E1306C; /* Ρόζ χρώμα για Instagram κατά το hover */
+        }
+
+        .social-media .twitter:hover {
+            color: #1DA1F2; /* Γαλάζιο χρώμα για Twitter κατά το hover */
+        }
+
+        .social-media i {
+            font-size: 25px; /* Μεγέθος των εικονιδίων */
+        }
+
+
+
+        .footer {
+            width: 100%;
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+
+            .footer a {
+                color: #fff;
+                padding: 0 10px;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .footer a:hover {
+                    color: #F39C12;
+                }
+
+            .footer p {
+                margin: 10px 0;
+            }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 20px;
+            }
+
+            .header, .footer {
+                padding: 10px;
+            }
+
+            .contact-info, .contact-form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="MenuBars.html" id="logo">
+            <img src="CSS/Picture/Loco/MorselMap1.png" alt="Logo" width="200" height="100">
+        </a>
+        <div class="header-right">
+            <a class="active" href="MenuBars.html">Home</a>
+            <a href="Contact.html">Contact</a>
+            <a href="About2.html">About</a>
+            <a href="Sing in1.html">Sign in</a>
+        </div>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Let's Talk</h2>
+            <p>Διεύθυνση: Μια Ψευδής Διεύθυνση, Αθήνα, Ελλάδα</p>
+            <p>Τηλέφωνο: +30 210 123 4567</p>
+            <p>Email: contact@example.com</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-link instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/yourprofile" target="_blank" class="social-link twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Us A Message</h2>
+            <form action="https://formspree.io/f/mnqegpvp" id="contact-form" method="POST">
+                <div class="field">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="field">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="field">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="field">
+                    <label for="company">Company (optional):</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="field">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <input type="submit" value="SEND MESSAGE">
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <p>© 2024 by Morsel Map. Proudly created with Stefanos Antoniou</p>
+            <a href="Terms.html">Terms & Conditions</a>
+            <a href="Privacy.html">Privacy Policy</a>
+        </div>
+    </div>
+
+    <script>
+        // Προσθέτουμε έναν event listener για το γεγονός 'submit' στη φόρμα
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Αποτρέπει την προεπιλεγμένη υποβολή της φόρμας
+
+            var form = this; // Διατηρούμε μια αναφορά στη φόρμα
+            var formData = new FormData(form); // Δημιουργούμε ένα νέο FormData object, το οποίο περιέχει τα δεδομένα της φόρμας
+
+            // Δημιουργούμε και εμφανίζουμε ένα SweetAlert για να ενημερώσουμε τον χρήστη για την επιτυχή αποστολή
+            Swal.fire({
+                position: 'top-end', // Θέση του παραθύρου στο πάνω δεξί μέρος
+                icon: 'success', // Εικονίδιο επιτυχίας
+                title: 'Το μήνυμά σας έχει αποσταλεί', // Τίτλος μηνύματος
+                showConfirmButton: false, // Δεν εμφανίζει κουμπί επιβεβαίωσης
+                timer: 1500 // Χρονομέτρηση για αυτόματο κλείσιμο μετά από 1.5 δευτερόλεπτα
+            }).then((result) => {
+                // Αφού εμφανιστεί το SweetAlert και λήξει το χρονόμετρο, εκτελούμε την ασύγχρονη αποστολή της φόρμας
+                fetch('https://formspree.io/f/mnqegpvp', {
+                    method: 'POST', // Μέθοδος αποστολής δεδομένων
+                    body: formData, // Δεδομένα φόρμας που αποστέλλονται
+                    headers: {
+                        'Accept': 'application/json' // Επικεφαλίδα που δηλώνει πως αποδεχόμαστε JSON αποκρίσεις
+                    }
+                }).then(response => {
+                    // Έλεγχος της απόκρισης της αίτησης
+                    if (response.ok) {
+                        window.location.href = "MenuBars.html"; // Ανακατεύθυνση στην αρχική σελίδα αν η αποστολή ήταν επιτυχής
+                    } else {
+                        alert('Υπήρξε κάποιο πρόβλημα με την αποστολή της φόρμας.'); // Εμφάνιση σφάλματος αν κάτι πήγε στραβά
+                    }
+                }).catch(error => {
+                    alert('Σφάλμα: ' + error); // Εμφάνιση σφάλματος σε περίπτωση αποτυχίας της αίτησης
+                });
+            });
+        });
+
+
+    </script>
+
+
+</body>
+</html>

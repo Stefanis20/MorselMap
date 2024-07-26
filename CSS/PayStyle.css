@@ -1,0 +1,85 @@
+﻿body {
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px;
+    background-color: #f4f4f4; /* Προσθήκη ελαφρύτερου φόντου για όλη τη σελίδα */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    justify-content: center; /* Κεντραρισμός των στοιχείων της γραμμής */
+}
+
+.col-25, .col-50, .col-75 {
+    padding: 0 16px;
+}
+
+.container {
+    background-color: #fff; /* Άσπρο φόντο για καλύτερη αντίθεση */
+    padding: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    max-width: 800px; /* Περιορίζει το μέγιστο πλάτος του container */
+    width: 100%; /* Εξασφαλίζει ότι θα προσαρμόζεται στο πλάτος της οθόνης */
+    margin: auto; /* Κεντραρισμός του container */
+}
+
+input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+    .btn:hover {
+        background-color: #45a049;
+    }
+
+a {
+    color: #2196F3;
+}
+
+hr {
+    border: 1px solid lightgrey;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+
+@media (max-width: 800px) {
+    .col-25, .col-50, .col-75 {
+        width: 100%; /* Καθιστά τα στοιχεία να παίρνουν το πλήρες πλάτος */
+        max-width: none; /* Αφαιρεί τον περιορισμό μέγιστου πλάτους */
+    }
+}

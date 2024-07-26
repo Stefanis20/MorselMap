@@ -1,0 +1,87 @@
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 20px;
+    border: 2px solid #eeeeee;
+    padding: 5px 10px;
+}
+
+    .input-container i {
+        margin-right: 8px; /* Κενό μεταξύ εικονιδίου και πεδίου */
+        color: #007bff; /* Χρώμα του εικονιδίου */
+    }
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #ffffff; /* Λευκό φόντο */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Σκιά για βάθος */
+    border-radius: 25px; /* Στρογγυλεμένες γωνίες */
+}
+
+    .search-bar select {
+        padding-left: 10px;
+    }
+
+    .search-bar input, .search-bar select, .search-bar button {
+        padding: 10px 15px;
+        border: 2px solid #eeeeee; /* Ελαφρύ γκρι περίγραμμα */
+        border-radius: 20px; /* Στρογγυλεμένες γωνίες */
+        outline: none;
+        font-size: 16px; /* Μεγαλύτερο μέγεθος γραμματοσειράς */
+    }
+
+        .search-bar input:focus, .search-bar select:focus, .search-bar button:focus {
+            border-color: #007bff; /* Μπλε περίγραμμα κατά την εστίαση */
+        }
+
+    .search-bar button {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.1s;
+        border-radius: 20px;
+        padding: 10px 15px;
+    }
+    .search-bar input, .search-bar select {
+        border: none; /* Αφαιρέστε τα περιγράμματα από τα input fields */
+        outline: none; /* Αποφύγετε το outline κατά την εστίαση */
+        font-size: 16px; /* Μεγέθος γραμματοσειράς */
+        background-color: transparent; /* Διαφανές background */
+    }
+
+        .search-bar button:hover {
+            background-color: #0056b3; /* Σκουρότερο μπλε κατά την διάρκεια hover */
+            transform: scale(1.05); /* Ελαφρύ zoom κατά το hover */
+        }
+
+    /* Εικονίδια μέσα στα πεδία εισαγωγής */
+    .search-bar input[type="date"], .search-bar input[type="time"], .search-bar select, .search-bar input[type="search"] {
+        background-size: 20px; /* Μέγεθος εικονιδίων */
+        background-position: 10px center; /* Θέση εικονιδίων */
+        background-repeat: no-repeat; /* Εμποδίζει την επανάληψη */
+        padding-left: 30px; /* Αυξήστε το padding αριστερά για να αφήσετε χώρο για τα εικονίδια */
+    }
+
+/* Media Query για συσκευές με μέγιστο πλάτος 768px */
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column; /* Τα στοιχεία να είναι το ένα κάτω από το άλλο */
+        padding: 10px;
+    }
+
+        .search-bar input, .search-bar select, .search-bar button {
+            width: 100%; /* Τα στοιχεία να απλώνουν σε όλο το πλάτος */
+            margin-top: 5px; /* Προσθήκη απόστασης μεταξύ των στοιχείων */
+        }
+
+        .search-bar button {
+            padding: 12px 20px; /* Μεγαλύτερο κουμπί για καλύτερη προσβασιμότητα */
+        }
+}
+
+

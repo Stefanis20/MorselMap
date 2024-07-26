@@ -1,0 +1,743 @@
+.breadcrumb {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+
+    .breadcrumb li {
+        display: inline;
+        font-size: 14px;
+    }
+
+        .breadcrumb li a {
+            color: #555;
+            text-decoration: none;
+            padding: 0 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, color 0.3s;
+        }
+
+            .breadcrumb li a:hover {
+                background: #d4dade;
+                color: #41474d;
+            }
+
+        .breadcrumb li.active a {
+            color: #fff;
+            background: #808080;
+            pointer-events: none;
+        }
+
+        .breadcrumb li + li:before {
+            content: ">";
+            color: #555;
+            padding: 0 10px;
+        }
+/*Edo telioni i morfopiisi tou odigou kato apo to header */
+/*Edo ksekina i morfopisii tou odigou Overview, photos, menu kai reviews */
+.sticky-container {
+    position: sticky;
+    top: 0;
+    max-height: 100vh; /* Μέγιστο ύψος ίσο με το ύψος της οθόνης */
+    overflow-y: auto; /* Ενεργοποίηση κύλισης εντός του στοιχείου αν ξεπεραστεί το μέγιστο ύψος */
+    z-index: 100; /* Tο overview είναι πάνω από τα άλλα στοιχεία */
+}
+
+
+.top-nav {
+    background-color: #fff; 
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0, 0, 0, 0.1); /* ελαφριά σκιά για βάθος */
+    position: sticky;
+    top: 0; /* θα κρατήσει την πλοήγηση στο πάνω μέρος κατά την κύλιση */
+    z-index: 1000; /* βεβαιώνεται ότι η πλοήγηση θα είναι πάνω από άλλα στοιχεία */
+}
+    .top-nav a {
+        display: inline-block;
+        margin: 0 10px; /* διάστημα ανάμεσα στους συνδέσμους */
+text-decoration: none;
+color: #333; /* σκούρο γκρι χρώμα για τα κείμενα των συνδέσμων */
+font-weight: bold; /* κάνει το κείμενο πιο έντονο */
+padding: 5px 15px; /* προσθέτει κάποιο padding γύρω από τους συνδέσμους */
+border-radius: 5px; /* ελαφριά στρογγυλεμένες γωνίες */
+    }
+
+        .top-nav a:hover, .top-nav a:active, .top-nav a:focus {
+            background-color: #e7e7e7; /* αλλάζει το χρώμα φόντου όταν περάσει ο δρομέας από πάνω */
+color: #000; /* κάνει το κείμενο πιο σκούρο για καλύτερη ορατότητα */
+        }
+
+
+#overview, #photos, #menu, #reviews {
+padding: 20px; 
+margin: 10px 0; 
+}
+/*Edo telioni i morfopisii tou odigou Overview, photos, menu kai reviews */
+
+/*Edo arxizi i morfopiisi tis formas person, date kai time */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+/* Edo arxizi tou button pou anigi tin forma */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Πιο έντονο θολό φόντο */
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto; /* Πιο κεντραρισμένη και μεγαλύτερη απόσταση από το πάνω μέρος */
+    padding: 40px; /* Περισσότερο εσωτερικό περιθώριο */
+    border: 1px solid #888;
+    width: 60%; /* Μεγαλύτερο πλάτος */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    animation: appear 0.5s ease-out; /* Προσθήκη animation για εμφάνιση */
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Στυλ για το κουμπί από τις οδηγίες σας */
+.bn632-hover {
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    transition: all .4s ease-in-out;
+}
+
+    .bn632-hover:hover {
+        background-position: 100% 0;
+        transition: all .4s ease-in-out;
+    }
+
+    .bn632-hover:focus {
+        outline: none;
+    }
+
+    .bn632-hover.bn20 {
+        background-image: linear-gradient( to right, #667eea, #764ba2, #6b8dd6, #8e37d7 );
+        box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+    }
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Edo telioni tou button pou anigi tin forma */
+
+.booking-form {
+
+    top: 0;
+    margin-left: auto; 
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 8px; /* Προσθέτουμε στρογγυλεμένες γωνίες */
+}
+
+/* Βασικά Στυλ της Φόρμας */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .form-control label {
+        margin-right: 10px; /* Προσθήκη διαστήματος μεταξύ ετικέτας και πεδίου εισαγωγής */
+        font-size: 16px;
+        color: #333;
+        width: 100px; /* Σταθερό πλάτος για ετικέτες */
+    }
+
+
+    .form-control i {
+        position: absolute;
+        left: 120px; /* Θέση δίπλα στην ετικέτα */
+        top: 50%;
+        transform: translateY(-50%);
+        color: #667eea;
+        font-size: 1.2rem;
+    }
+
+    .form-control input,
+    .form-control select {
+        flex: 1;
+        padding: 10px 10px 10px 40px; /* Εσοχή για να μην επικαλύπτεται το κείμενο με το εικονίδιο */
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+
+        .form-control input:focus,
+        .form-control select:focus {
+            border-color: #667eea; /* Αλλαγή χρώματος περιγράμματος κατά την εστίαση */
+            outline: none;
+        }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.form-control button {
+    padding: 10px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+    .form-control button:hover {
+        background-color: #8e37d7;
+        transform: translateY(-2px);
+    }
+
+/* Ανιμασιών για την εμφάνιση του Modal */
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Τοποθετήστε το container για το overview αριστερά της φόρμας και κέντρο της σελίδας */
+.overview-container {
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    z-index: 10;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.restaurant-title {
+    font-size: 34px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.figcaption {
+    display: inline-block;
+    background-color: #f8f9fa; /* Ανοιχτό γκρι φόντο */
+    color: #333; /* Σκούρο γκρι κείμενο */
+    padding: 5px 10px;
+    border-radius: 15px; /* Στρογγυλεμένες γωνίες */
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ελαφριά σκιά για βάθος */
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+    .star-rating i {
+        color: #f5c518; /* Χρώμα των αστεριών */
+        font-size: 24px; /* Μέγεθος των αστεριών */
+        margin-right: 4px; /* Απόσταση μεταξύ των αστεριών */
+    }
+
+.info-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #dddddd;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+    .info-item:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .info-item i:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+
+    .info-item i {
+        margin-right: 15px; /* Αυξήθηκε απόσταση από τα κείμενα */
+        color: #555;
+        font-size: 18px; 
+    }
+
+    .info-item span, .info-item p {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .info-item span {
+        margin-right: 5px;
+    }
+
+details summary { /* Morfopiisi gia to Dropdown */
+    font-weight: bold; /* Κάνει το κείμενο έντονο */
+    color: #333; /* Ορίζει το χρώμα του κειμένου */
+    cursor: pointer; /* Δείχνει ότι το στοιχείο είναι διαδραστικό */
+    padding: 5px; /* Προσθήκη ελαφριάς επένδυσης για καλύτερη αισθητική */
+    margin-bottom: 5px; /* Προσθήκη χώρου κάτω από το summary */
+}
+
+    /* Προσθήκη εφέ στο κλικ */
+    details summary:focus,
+    details summary:hover {
+        background-color: #f0f0f0; /* Λεπτό υπόβαθρο κατά την εστίαση ή το hover */
+    }
+
+details p {
+    padding: 5px 20px; /* Λίγο padding για καλύτερη μορφοποίηση */
+    margin: 0; /* Αφαιρέστε τα περιττά margins */
+}
+
+
+    /* Apo edo arxizi i morfopiisi to galery */
+    .in-grid-container {
+        width: 100%; /*  συγκεκριμένο πλάτος που ταιριάζει στη σελίδα*/
+        margin: 0 auto; /* Κεντράρει το πλέγμα και προσθέτει αυτόματα περιθώρια από αριστερά και δεξιά */
+    }
+
+    .grid-container {
+        width: 55%; /*  συγκεκριμένο πλάτος που ταιριάζει στη σελίδα */
+        margin: 0 auto; /* Κεντράρει το πλέγμα και προσθέτει αυτόματα περιθώρια από αριστερά και δεξιά */
+    }
+
+
+    .seven-tile-grid, .three-tile-grid {
+        position: relative;
+    }
+
+    .seven-tile-grid__item, .three-tile-grid__item {
+        border: 5px solid #fff;
+        border-radius: 1rem;
+        float: left;
+        margin: -5px -5px 0 0;
+        overflow: hidden;
+        position: relative;
+        width: 13.1%
+    }
+
+        .seven-tile-grid__item::before, .three-tile-grid__item::before {
+            content: '';
+            float: left;
+            padding-bottom: 100%
+        }
+
+        .seven-tile-grid__item::after, .three-tile-grid__item::after {
+            clear: left;
+            content: '';
+            display: table
+        }
+
+        .seven-tile-grid__item:hover, .three-tile-grid__item:hover {
+            cursor: pointer
+        }
+
+        .seven-tile-grid__item img, .three-tile-grid__item img, .seven-tile-grid__item .youtube-player, .three-tile-grid__item .youtube-player {
+            position: absolute;
+            top: -10rem;
+            right: -10rem;
+            bottom: -10rem;
+            left: -10rem;
+            margin: auto;
+            max-height: 200%;
+            max-width: 200%;
+            min-height: 100%;
+            min-width: 100%
+        }
+
+        .seven-tile-grid__item .youtube-player, .three-tile-grid__item .youtube-player {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0
+        }
+
+        .seven-tile-grid__item iframe, .three-tile-grid__item iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+
+        .seven-tile-grid__item:first-child, .three-tile-grid__item:first-child {
+            width: 40%
+        }
+
+            .seven-tile-grid__item:first-child::before, .three-tile-grid__item:first-child::before {
+                padding-bottom: 96%
+            }
+
+        .seven-tile-grid__item:nth-child(2), .three-tile-grid__item:nth-child(2) {
+            width: 45%
+        }
+
+            .seven-tile-grid__item:nth-child(2)::before, .three-tile-grid__item:nth-child(2)::before {
+                padding-bottom: 56.7%
+            }
+
+        .seven-tile-grid__item:nth-child(5), .three-tile-grid__item:nth-child(5), .seven-tile-grid__item:nth-child(6), .three-tile-grid__item:nth-child(6) {
+            width: 22.75%
+        }
+
+            .seven-tile-grid__item:nth-child(5)::before, .three-tile-grid__item:nth-child(5)::before, .seven-tile-grid__item:nth-child(6)::before, .three-tile-grid__item:nth-child(6)::before {
+                padding-bottom: 55%
+            }
+
+        .seven-tile-grid__item:nth-child(n+8), .three-tile-grid__item:nth-child(n+8) {
+            display: none
+        }
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+}
+
+    /* Edo telioni i morfopiisi to gallery */
+    .content-section__header {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .restaurant-description p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Προσθήκη για περισσότερη ελκυστικότητα */
+    .restaurant-description strong {
+        color: #000;
+    }
+    /* CSS PLIROFORIES */
+    #info {
+        margin-top: 20px; 
+    }
+    /* CSS MAP */
+    .map-container {
+        display: flex;
+        justify-content: center; /* Κεντραρίσμα του χάρτη οριζόντια */
+        align-items: center; /* Κεντραρίσμα του χάρτη κατακόρυφα */
+        height: 450px; 
+        width: 100%; /* Προσαρμογή του πλάτους του container στο πλάτος του γονικού στοιχείου */
+    }
+
+    iframe {
+        flex: 0 1 auto; /* Επιτρέπει στο iframe να είναι flex item με τη δυνατότητα να συρρικνώνεται αλλά όχι να διαστέλλεται πέρα από το αρχικό μέγεθος του */
+        width: 100%; /* Προσαρμογή του πλάτους του iframe στο πλάτος του container */
+        height: 100%; /* Προσαρμογή του ύψους του iframe στο ύψος του container */
+        border: 0; /* Αφαιρεί το περίγραμμα του iframe */
+        margin-top: 80px;
+    }
+    /* CSS TOU MENOU */
+    .menu-container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        height: 300px; /* Αυξημένο ύψος για να χωράει το νέο κουμπί */
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .menu-background {
+        width: 100%;
+        display: block;
+        height: 100%; /* Αλλαγή από auto σε 100% για πλήρη κάλυψη ύψους */
+        background-size: cover; /* Εξασφαλίζει ότι η εικόνα καλύπτει τον διαθέσιμο χώρο */
+        background-position: center; /* Κεντράρει την εικόνα στο container */
+    }
+
+    .button-40 {
+        position: absolute;
+        top: 50%; /* Κεντράρισμα κατακόρυφα */
+        left: 50%; /* Κεντράρισμα οριζόντια */
+        transform: translate(-50%, -50%); /* Ακριβές κεντράρισμα */
+        padding: 8px 16px; /* Μικρότερο padding για το κουμπί */
+        background: #8B008B;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px; /* Μικρότερο μέγεθος γραμματοσειράς για το κουμπί */
+        z-index: 3;
+        --glow-color: rgb(217, 176, 255);
+        --glow-spread-color: rgba(191, 123, 255, 0.781);
+        --enhanced-glow-color: rgb(231, 206, 255);
+        --btn-color: rgb(100, 61, 136);
+        border: .25em solid var(--glow-color);
+        color: var(--glow-color);
+        background-color: var(--btn-color);
+        box-shadow: 0 0 1em .25em var(--glow-color), 0 0 4em 1em var(--glow-spread-color), inset 0 0 .75em .25em var(--glow-color);
+        text-shadow: 0 0 .5em var(--glow-color);
+        transition: all 0.3s;
+    }
+
+        .button-40:hover {
+            color: var(--btn-color);
+            background-color: var(--glow-color);
+            box-shadow: 0 0 1em .25em var(--glow-color), 0 0 4em 2em var(--glow-spread-color), inset 0 0 .75em .25em var(--glow-color);
+        }
+
+        .button-40:active {
+            box-shadow: 0 0 0.6em .25em var(--glow-color), 0 0 2.5em 2em var(--glow-spread-color), inset 0 0 .5em .25em var(--glow-color);
+        }
+
+
+    /* REVIEW CSS */
+
+    .review-container {
+        width: 100%;
+        margin-top: 150px;
+    }
+
+    .heading {
+        font-size: 32px;
+        margin-right: 25px;
+    }
+
+    .fa {
+        font-size: 25px;
+    }
+
+    .checked {
+        color: orange;
+    }
+   
+    .side {
+        float: left;
+        width: 15%;
+        margin-top: 15px;
+    }
+
+    .middle {
+        margin-top: 10px;
+        float: left;
+        width: 70%;
+    }
+    
+    .right {
+        text-align: right;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* The bar container */
+.bar-container {
+    display: flex;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+    /* Individual bars */
+    .bar-5 {
+        width: 60%;
+        height: 18px;
+        background-color: #04AA6D;
+    }
+
+    .bar-4 {
+        width: 30%;
+        height: 18px;
+        background-color: #2196F3;
+    }
+
+    .bar-3 {
+        width: 10%;
+        height: 18px;
+        background-color: #00bcd4;
+    }
+
+    .bar-2 {
+        width: 4%;
+        height: 18px;
+        background-color: #ff9800;
+    }
+
+    .bar-1 {
+        width: 15%;
+        height: 18px;
+        background-color: #f44336;
+    }
+
+    /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+    @media (max-width: 400px) {
+        .side, .middle {
+            width: 100%;
+        }
+
+        .right {
+            display: none;
+        }
+    }
+
+.average-ratings {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.average-item {
+    background-color: #f8f9fa; /* Ανοιχτό γκρι φόντο */
+    border: 1px solid #ddd; /* Λεπτό περίγραμμα */
+    border-radius: 5px; /* Στρογγυλεμένες γωνίες */
+    padding: 10px 20px; /* Εσωτερικό padding */
+    margin: 0 10px; /* Διαχωρισμός ανάμεσα στα κουτάκια */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ελαφριά σκιά για βάθος */
+}
+
+.average-title {
+    font-weight: bold; /* Έντονο για τίτλο */
+    color: #333; /* Σκούρο γκρι χρώμα */
+    display: block; /* Κάθε τίτλος να είναι σε νέα γραμμή */
+}
+
+.average-value {
+    font-size: 18px; /* Μεγαλύτερο μέγεθος για την αξιολόγηση */
+    color: #666; /* Χρώμα για την αξιολόγηση */
+}
+
+
+
+
+
+

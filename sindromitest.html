@@ -1,0 +1,523 @@
+﻿<!doctype html>
+<html lang="el-gr">
+<head>
+    <link rel="icon" type="image/x-icon" href="CSS/Picture/Loco/MorselMapFavicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            background: #2b2b2b;
+            opacity: 0;
+            z-index: -1;
+            visibility: hidden;
+            transition: all .375s;
+        }
+
+            .main-nav.is-open {
+                opacity: 1;
+                z-index: 100;
+                visibility: visible;
+            }
+
+            .main-nav::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: -15px;
+                background: #0a7cd1;
+                transform-origin: 0 0;
+                transform: skew(-14deg) translateX(-120%);
+                transition: all .275s .1s;
+            }
+
+            .main-nav.is-open::before {
+                transform: skew(-14deg) translateX(0);
+            }
+
+            .main-nav ul {
+                display: inline-flex;
+                flex-direction: column;
+                height: 93%;
+                align-items: flex-end;
+                justify-content: center;
+                transform: translateX(-18%) skew(-16deg);
+            }
+
+            .main-nav li {
+                display: block;
+                margin: .5rem 0;
+                text-align: right;
+                transform: skew(16deg);
+            }
+
+            .main-nav a {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            .main-nav.is-open a {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .main-nav li:nth-child(1) a {
+                transition: all 275ms 175ms;
+            }
+
+            .main-nav li:nth-child(2) a {
+                transition: all 275ms 225ms;
+            }
+
+            .main-nav li:nth-child(3) a {
+                transition: all 275ms 275ms;
+            }
+
+            .main-nav li:nth-child(4) a {
+                transition: all 275ms 325ms;
+            }
+
+            .main-nav ul, .main-nav li {
+                list-style: none;
+                padding: 0;
+            }
+
+            .main-nav a {
+                display: block;
+                padding: 12px 0;
+                color: #FFF;
+                font-size: 1.4em;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+        .open-main-nav {
+            position: absolute;
+            top: 15px;
+            padding-top: 20px;
+            right: 15px;
+            z-index: 1000;
+            background: none;
+            border: 0;
+            cursor: pointer;
+        }
+
+            .open-main-nav:focus {
+                outline: none;
+            }
+
+        .burger {
+            position: relative;
+            display: block;
+            width: 28px;
+            height: 4px;
+            margin: 0 auto;
+            background: #FFF;
+            transform: skew(5deg);
+            transition: all .275s;
+        }
+
+            .burger:after, .burger:before {
+                content: '';
+                display: block;
+                height: 100%;
+                background: #FFF;
+                transition: all .275s;
+            }
+
+            .burger:after {
+                transform: translateY(-12px) translateX(-2px) skew(-20deg);
+            }
+
+            .burger:before {
+                transform: translateY(-16px) skew(-10deg);
+            }
+
+        .is-open .burger {
+            transform: skew(5deg) translateY(-8px) rotate(-45deg);
+        }
+
+            .is-open .burger:before {
+                transform: translateY(0px) skew(-10deg) rotate(75deg);
+            }
+
+            .is-open .burger:after {
+                transform: translateY(-12px) translateX(10px) skew(-20deg);
+                opacity: 0;
+            }
+
+        .burger-text {
+            display: block;
+            font-size: .675rem;
+            letterSpacing: .05em;
+            marginTop: .5em;
+            textTransform: uppercase;
+            fontWeight: 500;
+            textAlign: center;
+            color: #FFF;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+            z-index: 1;
+            margin-top: auto; /* Κρατάει το footer στο κάτω μέρος της σελίδας */
+        }
+
+            .footer a {
+                color: #fff;
+                padding: 0 10px;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .footer a:hover {
+                    color: #F39C12;
+                }
+
+            .footer p {
+                margin: 10px 0;
+            }
+
+        @media (max-width: 600px) {
+            .header, .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-right a {
+                margin: 10px 0;
+            }
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            font-size: 1.1rem;
+            line-height: 1.2;
+            background-color: #212121;
+            color: #ddd;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 75rem;
+            padding: 3em 1.5em;
+            margin-top: 60px; /*  Τιμή βάσει του πραγματικού ύψους του header */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main__heading {
+            font-weight: 600;
+            font-size: 2.25em;
+            margin-bottom: 0.75em;
+            text-align: center;
+            color: #eceff1;
+        }
+
+        .cards {
+            position: relative;
+        }
+
+        .cards__inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5em;
+        }
+
+        .card {
+            --flow-space: 0.5em;
+            --hsl: var(--hue), var(--saturation), var(--lightness);
+            flex: 1 1 14rem;
+            padding: 1.5em 2em;
+            display: grid;
+            grid-template-rows: auto auto auto 1fr;
+            align-items: start;
+            gap: 1.25em;
+            color: #eceff1;
+            background-color: #2b2b2b;
+            border: 1px solid #eceff133;
+            border-radius: 15px;
+        }
+
+            .card:nth-child(1) {
+                --hue: 165;
+                --saturation: 82.26%;
+                --lightness: 51.37%;
+            }
+
+            .card:nth-child(2) {
+                --hue: 291.34;
+                --saturation: 95.9%;
+                --lightness: 61.76%;
+            }
+
+            .card:nth-child(3) {
+                --hue: 338.69;
+                --saturation: 100%;
+                --lightness: 48.04%;
+            }
+
+        .card__bullets {
+            line-height: 1.4;
+        }
+
+            .card__bullets li::before {
+                font-family: 'Font Awesome 5 Free'; 
+                display: inline-block;
+                margin-right: 1ch;
+                color: #000; 
+            }
+
+
+
+
+        .card__heading {
+            font-size: 1.05em;
+            font-weight: 600;
+        }
+
+        .card__price {
+            font-size: 1.75em;
+            font-weight: 700;
+        }
+
+        .flow > * + * {
+            margin-top: var(--flow-space, 1.25em);
+        }
+
+        .cta {
+            display: block;
+            align-self: end;
+            margin: 1em 0 0.5em 0;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            padding: 0.7em;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            user-select: none;
+            opacity: var(--opacity, 0);
+            -webkit-mask: radial-gradient(25rem 25rem at var(--x) var(--y), #000 1%, transparent 50%);
+            mask: radial-gradient(25rem 25rem at var(--x) var(--y), #000 1%, transparent 50%);
+            transition: 400ms mask ease;
+            will-change: mask;
+        }
+
+            .overlay .card {
+                background-color: hsla(var(--hsl), 0.15);
+                border-color: hsla(var(--hsl), 1);
+                box-shadow: 0 0 0 1px inset hsl(var(--hsl));
+            }
+
+            .overlay .cta {
+                display: block;
+                grid-row: -1;
+                width: 100%;
+                background-color: hsl(var(--hsl));
+                box-shadow: 0 0 0 1px hsl(var(--hsl));
+            }
+
+        :not(.overlay) > .card {
+            transition: 400ms background ease;
+            will-change: background;
+        }
+
+            :not(.overlay) > .card:hover {
+                --lightness: 95%;
+                background: hsla(var(--hsl), 0.1);
+            }
+    </style>
+</head>
+<body>
+    <div class="device">
+        <div class="container">
+            <button id="burger" class="open-main-nav">
+                <span class="burger"></span>
+                <span class="burger-text">Menu</span>
+            </button>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="MenuBars.html">Home</a></li>
+                    <li><a href="About2.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="Sing in1.html">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <main class="main flow">
+        <h1 class="main__heading">Pricing</h1>
+        <div class="main__cards cards">
+            <div class="cards__inner">
+                <div class="cards__card card">
+                    <h2 class="card__heading">Basic</h2>
+                    <p class="card__price">$9.99</p>
+                    <ul role="list" class="card__bullets flow">
+                        <li>
+                            <i class="fa fa-check"></i>
+                            Access to standard workouts and nutrition plans
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            Email Support
+                        </li>
+                    </ul>
+                    <a href="Pay.html?plan=Basic&price=9.99" class="card__cta cta">Get Started</a>
+                </div>
+
+                <div class="cards__card card">
+                    <h2 class="card__heading">Pro</h2>
+                    <p class="card__price">$19.99</p>
+                    <ul role="list" class="card__bullets flow">
+                        <li>
+                            <i class="fa fa-check"></i>
+                            Access to advanced workouts and nutrition plan
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            Priority Email support
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            Exclusive access to live Q&A sessions
+                        </li>
+                    </ul>
+                    <a href="Pay.html?plan=Pro&price=19.99" class="card__cta cta">Upgrade to Pro</a>
+                </div>
+
+                <div class="cards__card card">
+                    <h2 class="card__heading">Ultimate</h2>
+                    <p class="card__price">$29.99</p>
+                    <ul role="list" class="card__bullets flow">
+                        <li>
+                            <i class="fa fa-check"></i>
+                            Access to all premium workouts and nutrition plan
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            24/7 Priority support
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            1-on-1 virtual coaching session every month
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            Exclusive content and early access to new features
+                        </li>
+                    </ul>
+                    <a href="Pay.html?plan=Ultimate&price=29.99" class="card__cta cta">Go Ultimate</a>
+                </div>
+            </div>
+            <div class="overlay cards__inner"></div>
+        </div>
+    </main>
+    <div class="footer">
+        <div>
+            <p>© 2024 by Morsel Map. Proudly created with Stefanos Antoniou</p>
+            <a href="Terms.html">Terms & Conditions</a>
+            <a href="Privacy.html">Privacy Policy</a>
+        </div>
+    </div>
+    <script>
+        let burger = document.getElementById('burger'),
+            nav = document.getElementById('main-nav');
+
+        burger.addEventListener('click', function (e) {
+            this.classList.toggle('is-open');
+            nav.classList.toggle('is-open');
+        });
+    </script>
+    <script>
+        console.clear();
+
+        const cardsContainer = document.querySelector(".cards");
+        const cardsContainerInner = document.querySelector(".cards__inner");
+        const cards = Array.from(document.querySelectorAll(".card"));
+        const overlay = document.querySelector(".overlay");
+
+        const applyOverlayMask = (e) => {
+            const overlayEl = e.currentTarget;
+            const x = e.pageX - cardsContainer.offsetLeft;
+            const y = e.pageY - cardsContainer.offsetTop;
+
+            overlay.style = `--opacity: 1; --x: ${x}px; --y:${y}px;`;
+        };
+
+        const createOverlayCta = (overlayCard, ctaEl) => {
+            const overlayCta = document.createElement("div");
+            overlayCta.classList.add("cta");
+            overlayCta.textContent = ctaEl.textContent;
+            overlayCta.setAttribute("aria-hidden", true);
+            overlayCard.append(overlayCta);
+        };
+
+        const observer = new ResizeObserver((entries) => {
+            entries.forEach((entry) => {
+                const cardIndex = cards.indexOf(entry.target);
+                let width = entry.borderBoxSize[0].inlineSize;
+                let height = entry.borderBoxSize[0].blockSize;
+
+                if (cardIndex >= 0) {
+                    overlay.children[cardIndex].style.width = `${width}px`;
+                    overlay.children[cardIndex].style.height = `${height}px`;
+                }
+            });
+        });
+
+        const initOverlayCard = (cardEl) => {
+            const overlayCard = document.createElement("div");
+            overlayCard.classList.add("card");
+            createOverlayCta(overlayCard, cardEl.lastElementChild);
+            overlay.append(overlayCard);
+            observer.observe(cardEl);
+        };
+
+        cards.forEach(initOverlayCard);
+        document.body.addEventListener("pointermove", applyOverlayMask);
+    </script>
+</body>
+</html>
